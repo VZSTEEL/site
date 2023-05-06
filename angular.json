@@ -33,7 +33,7 @@
               "src/styles.less"
             ],
             "scripts": [],
-            "baseHref": "/vz-steel"
+            "baseHref": "/vz-steel/"
           },
           "configurations": {
             "production": {
