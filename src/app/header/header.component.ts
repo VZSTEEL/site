@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COMPANY_NAME, PHONE_NUMBER } from '../../config';
+import { COMPANY_NAME, EMAIL, PHONE_NUMBER } from '../../config';
 
 @Component({
   selector: 'vz-header',
@@ -12,4 +12,5 @@ import { COMPANY_NAME, PHONE_NUMBER } from '../../config';
 export class HeaderComponent {
   COMPANY_NAME = COMPANY_NAME;
   PHONE_NUMBER = PHONE_NUMBER;
+  EMAIL = EMAIL;
 }

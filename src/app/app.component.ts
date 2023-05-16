@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PHONE_NUMBER } from '../config';
+import { EMAIL, PHONE_NUMBER } from '../config';
 
 @Component({
   selector: 'vz-app',
@@ -12,6 +12,7 @@ import { PHONE_NUMBER } from '../config';
 export class AppComponent {
   title = 'vz-steel';
   PHONE_NUMBER = PHONE_NUMBER;
+  EMAIL = EMAIL;
 
   photos = [
     'IMG-20200320-WA0005',
@@ -30,5 +31,5 @@ export class AppComponent {
     'IMG-20210324-WA0001',
     'IMG-20210324-WA0019',
     'IMG-20210430-WA0006'
-  ]
+  ];
 }
