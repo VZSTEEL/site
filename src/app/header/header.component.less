@@ -1,0 +1,61 @@
+@import 'src/styles';
+
+@headerHeight: 110px;
+
+:host {
+  height: @headerHeight;
+  background: #fff;
+  border-bottom: 1px solid white;
+}
+
+.company-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.triangle {
+  margin-left: 10px;
+  width: 20px;
+  height: @headerHeight;
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-top: @headerHeight solid @blue;
+    border-right: 20px solid white;
+  }
+}
+
+.logo {
+  width: @headerHeight;
+  height: @headerHeight;
+  background: url('src/assets/logo.svg') center center no-repeat;
+  background-size: contain;
+}
+
+.menu {
+  &__item {
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    margin-left: 50px;
+  }
+}
+
+.call {
+  margin-left: 60px;
+
+  &__icon {
+    margin-right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url('../../assets/chat-red.svg') center center no-repeat;
+    background-size: contain;
+  }
+
+  &__number {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}

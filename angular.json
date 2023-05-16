@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "vz",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -26,8 +26,16 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "less",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "output": "/assets/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src/",
+                "output": "/"
+              }
             ],
             "styles": [
               "src/styles.less"
@@ -42,11 +50,6 @@
                   "type": "initial",
                   "maximumWarning": "500kb",
                   "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
                 }
               ],
               "outputHashing": "all"

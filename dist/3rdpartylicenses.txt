@@ -7,6 +7,11 @@ MIT
 @angular/platform-browser
 MIT
 
+lightgallery
+GPLv3
+
+lightgallery/angular
+
 rxjs
 Apache-2.0
                                Apache License
