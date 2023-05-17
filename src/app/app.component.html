@@ -35,18 +35,18 @@
         </div>
 
         <div class="display-flex mt50">
-            <form>
+            <form ngNativeValidate [formGroup]="form" (ngSubmit)="sendEmail()">
                 <div class="display-flex">
-                    <input type="text" name="name" placeholder="Enter Name">
-                    <input type="text" name="email" placeholder="Enter Email">
+                    <input type="text" required maxlength="50" formControlName="fromName" placeholder="Enter Name">
+                    <input type="email" maxlength="50" formControlName="fromEmail" placeholder="Enter Email">
                 </div>
                 <div class="display-flex">
-                    <input type="text" name="subject" placeholder="Enter Subject">
-                    <input type="text" name="phone" placeholder="Enter Phone Number">
+                    <input type="text" required maxlength="50" formControlName="subject" placeholder="Enter Subject">
+                    <input type="text" maxlength="50" formControlName="phone" placeholder="Enter Phone Number">
                 </div>
-                <textarea name="message" placeholder="Enter Your Message"></textarea>
+                <textarea formControlName="message" required maxlength="1000" placeholder="Enter Your Message"></textarea>
                 <div>
-                    <button type="submit">SEND MESSAGE</button>
+                    <button type="submit" [disabled]="form.invalid">SEND MESSAGE</button>
                 </div>
             </form>
             <div class="display-flex-column">

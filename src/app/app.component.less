@@ -13,22 +13,22 @@
 .main {
   display: flex;
   flex-direction: column;
-  background-color: #ebebeb;
+  background-size: cover;
+  background: #ebebeb url('src/assets/map.svg') no-repeat fixed center center;
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
 }
 
-.about {
-  margin-bottom: 50px;
-}
-
 .content {
   width: 600px;
+  padding-top: 50px;
   color: @secondaryColor;
   font-size: 20px;
   line-height: 30px;
   text-align: justify;
+  background: url('src/assets/qq.svg') no-repeat center 10px;
+  background-size: 170px 170px;
 }
 
 
@@ -70,9 +70,12 @@
     font-weight: bold;
     background-color: @blue;
     padding: 10px 15px;
+    &:disabled {
+      opacity: 0.5;
+    }
   }
 
-  & input[type="text"] {
+  & input[type="text"],input[type="email"] {
     width: 250px;
     margin-right: 20px;
     margin-bottom: 15px;
@@ -92,7 +95,7 @@
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     border: 0 none;
-    width: 550px;
+    width: 520px;
     &::placeholder {
       font-size: 14px;
       font-family: 'Montserrat', sans-serif;
