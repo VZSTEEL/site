@@ -17,8 +17,8 @@
         <div class="h1 text-red">Gallery</div>
         <div class="lightgallery">
             <lightgallery>
-                <a *ngFor="let photo of photos" [href]="'assets/photos/' + photo + '.jpg'">
-                    <img [src]="'assets/photos/' + photo + '_thumb.jpg'"/>
+                <a *ngFor="let image of GALLERY" [href]="'assets/photos/' + image">
+                    <img [src]="'assets/photos/thumbs/' + image"/>
                 </a>
             </lightgallery>
         </div>
