@@ -1,4 +1,6 @@
-@import 'src/styles';
+@import '/src/styles';
+
+@maxWidth: 860px;
 
 :host {
   overflow: hidden;
@@ -21,35 +23,30 @@
 }
 
 .content {
-  width: 600px;
   padding-top: 50px;
+  max-width: 600px;
   color: @secondaryColor;
   font-size: 20px;
   line-height: 30px;
   text-align: justify;
-  background: url('src/assets/qq.svg') no-repeat center 10px;
+  background: url('/src/assets/qq.svg') no-repeat center 10px;
   background-size: 170px 170px;
 }
-
 
 .gallery {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  &__content {
-    width: 800px;
-    padding: 60px 0;
-  }
+  max-width: @maxWidth;
   & img {
-    width: 180px;
-    height: 180px;
-    margin-right: 20px;
-    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    @media (min-width: 576px) {
+      width: 180px;
+      height: 180px;
+    }
+    margin-right: 1rem;
+    margin-bottom: 1rem;
   }
-}
-
-.lightgallery {
-  margin-top: 80px;
 }
 
 .contact-form {
@@ -59,29 +56,22 @@
   background-color: @red;
 
   &__content {
-    width: 800px;
-    padding: 60px 0;
+    max-width: @maxWidth;
   }
 
   & button {
-    margin-top: 20px;
     color: white;
     font-size: 12px;
     font-weight: bold;
     background-color: @blue;
     padding: 10px 15px;
-    &:disabled {
-      opacity: 0.5;
-    }
   }
 
   & input[type="text"],input[type="email"] {
-    width: 250px;
-    margin-right: 20px;
-    margin-bottom: 15px;
     padding: 10px 15px;
     font-size: 14px;
     border: 0 none;
+    min-width: 250px;
     font-family: 'Montserrat', sans-serif;
     &::placeholder {
       font-size: 14px;
@@ -90,12 +80,11 @@
   }
 
   & textarea {
-    height: 120px;
+    height: 140px;
     padding: 10px 15px;
     font-size: 14px;
     font-family: 'Montserrat', sans-serif;
     border: 0 none;
-    width: 520px;
     resize: none;
     &::placeholder {
       font-size: 14px;
@@ -110,22 +99,22 @@
 }
 
 .call {
-  margin-left: 20px;
-
   &__icon {
+    flex-shrink: 0;
     margin-right: 10px;
     width: 50px;
     height: 50px;
-    background: url('../assets/chat.svg') center center no-repeat;
+    background: url('src/assets/chat.svg') center center no-repeat;
     background-size: contain;
   }
 
   &__icon_mail {
+    flex-shrink: 0;
     margin-left: 5px;
     margin-right: 15px;
     width: 40px;
     height: 40px;
-    background: url('../assets/mail.svg') center center no-repeat;
+    background: url('src/assets/mail.svg') center center no-repeat;
     background-size: contain;
   }
 
@@ -139,13 +128,10 @@
 }
 
 .footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: @maxWidth;
   &__content {
+    flex: auto;
     color: white;
-    width: 800px;
-    padding: 60px 0;
   }
 }
 

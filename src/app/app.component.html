@@ -1,8 +1,15 @@
-<vz-header></vz-header>
+<div class="d-flex p-0 bg-blue">
+    <div class="flex-auto d-none d-md-block"></div>
+    <div class="container-lg p-0">
+        <vz-header></vz-header>
+    </div>
+    <div class="flex-auto d-none d-md-block bg-white"></div>
+</div>
+
 <div class="main-image"></div>
 <div class="main" id="about">
     <div class="about h1"><span class="text-red">ABOUT</span> US</div>
-    <div class="content">
+    <div class="content px-3">
         VZ Steel is proud to provide top-quality steel fixing jobs completed to the best standard. No job is too big or
         too
         small for our experienced and committed team. Whether your project is residential or commercial we will always
@@ -12,57 +19,69 @@
         huge difference in the overall delivery of the final product.
     </div>
 </div>
-<div class="gallery" id="gallery">
-    <div class="gallery__content">
-        <div class="h1 text-red">Gallery</div>
-        <div class="lightgallery">
-            <lightgallery>
-                <a *ngFor="let image of GALLERY" [href]="'assets/photos/' + image">
-                    <img [src]="'assets/photos/thumbs/' + image"/>
-                </a>
-            </lightgallery>
-        </div>
+<div class="container-md gallery px-3 py-5" id="gallery">
+    <div class="h1 text-red mb-5">Gallery</div>
+    <div class="d-flex flex-column align-items-center">
+        <lightgallery class="d-flex flex-wrap justify-content-center" [settings]="lightGallerySettings">
+            <a class="d-block" *ngFor="let image of GALLERY" [href]="'assets/photos/' + image">
+                <img [src]="'assets/photos/thumbs/' + image"/>
+            </a>
+        </lightgallery>
     </div>
 </div>
+
 <div class="contact-form" id="contact">
-    <div class="contact-form__content">
-        <div class="display-flex flex-cross-center">
+    <div class="contact-form__content container-md px-3 py-5">
+        <div class="d-flex justify-content-center mb-5">
             <div class="h1 flex-auto">Get In Touch</div>
-            <div class="hint">
+            <div class="hint ms-2">
                 For quotes, questions or further information please contact us.<br>
                 We look forward to hearing from you!
             </div>
         </div>
 
-        <div class="display-flex mt50">
-            <form ngNativeValidate [formGroup]="form" (ngSubmit)="sendEmail()">
-                <div class="display-flex">
-                    <input type="text" required maxlength="50" formControlName="fromName" placeholder="Enter Name">
-                    <input type="email" maxlength="50" formControlName="fromEmail" placeholder="Enter Email">
+        <div class="container-fluid p-0">
+            <div class="row">
+                <div class="col col-sm-8">
+                    <form ngNativeValidate [formGroup]="form" (ngSubmit)="sendEmail()">
+                        <div class="container-fluid p-0">
+                            <div class="row g-0">
+                                <input class="col mx-2 my-2" type="text" required maxlength="50"
+                                       formControlName="fromName"
+                                       placeholder="Enter Name">
+                                <input class="col mx-2 my-2" type="email" maxlength="50" formControlName="fromEmail"
+                                       placeholder="Enter Email">
+                            </div>
+
+                            <div class="row g-0">
+                                <input class="col mx-2 my-2" type="text" required maxlength="50"
+                                       formControlName="subject"
+                                       placeholder="Enter Subject">
+                                <input class="col mx-2 my-2" type="text" maxlength="50" formControlName="phone"
+                                       placeholder="Enter Phone Number">
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-auto mx-2 my-2">
+                            <textarea class="w-100" formControlName="message" required maxlength="1000"
+                                      placeholder="Enter Your Message"></textarea>
+                        </div>
+                        <div class="mx-2 my-3">
+                            <button type="submit">SEND MESSAGE</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="display-flex">
-                    <input type="text" required maxlength="50" formControlName="subject" placeholder="Enter Subject">
-                    <input type="text" maxlength="50" formControlName="phone" placeholder="Enter Phone Number">
-                </div>
-                <textarea formControlName="message" required maxlength="1000" placeholder="Enter Your Message"></textarea>
-                <div>
-                    <button type="submit" [disabled]="form.invalid">SEND MESSAGE</button>
-                </div>
-            </form>
-            <div class="display-flex-column">
-                <div class="display-flex-column">
-                    <div class="call display-flex flex-cross-center">
+                <div class="col col-sm-4">
+                    <div class="call d-flex align-items-center">
                         <div class="call__icon"></div>
-                        <div class="display-flex-column">
+                        <div class="d-flex flex-column">
                             <div class="call__label">Call us anytime</div>
                             <div class="call__value">{{ PHONE_NUMBER }}</div>
                         </div>
                     </div>
-                </div>
-                <div class="display-flex-column mt20">
-                    <div class="call display-flex flex-cross-center">
+                    <div class="call d-flex align-items-center">
                         <div class="call__icon_mail"></div>
-                        <div class="display-flex-column">
+                        <div class="d-flex flex-column">
                             <div class="call__label">Send us a message</div>
                             <div class="call__value">{{ EMAIL }}</div>
                         </div>
@@ -72,17 +91,16 @@
         </div>
     </div>
 </div>
-<div class="footer">
+<div class="footer container-md px-3 py-5">
     <div class="footer__content">
-        <div class="display-flex flex-auto">
-            <div class="display-flex-column flex-auto">
+        <div class="d-flex flex-auto">
+            <div class="d-flex flex-column flex-auto">
                 <div class="h2">CONTACT US</div>
                 <div class="email">{{ EMAIL }}</div>
                 <div class="phone-number">{{ PHONE_NUMBER }}</div>
             </div>
             <div class="logo"></div>
         </div>
-
     </div>
 </div>
 

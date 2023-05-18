@@ -1,22 +1,20 @@
-<div class="display-flex flex-cross-center flex-center flex-auto height-100">
-    <div class="flex-auto height-100 bg-blue"></div>
-    <div class="display-flex flex-cross-center flex-center bg-blue">
+<div class="row g-0">
+    <div class="col order-1 d-flex align-items-center justify-content-center justify-content-sm-end p-0 bg-blue">
         <div class="logo"></div>
-        <div class="company-name">{{ COMPANY_NAME }}</div>
-        <div class="triangle bg-white"></div>
+        <div class="company-name text-nowrap">{{ COMPANY_NAME }}</div>
+        <div class="triangle d-none d-sm-block"></div>
     </div>
-    <div class="display-flex bg-white">
-        <a class="menu__item" href="#about">ABOUT US</a>
-        <a class="menu__item" href="#gallery">GALLERY</a>
-        <a class="menu__item" href="#contact">CONTACT US</a>
+    <div class="menu col flex-md-grow-2 z-1 order-last order-md-2 d-flex py-3 align-items-center justify-content-center bg-white">
+        <a class="menu__item text-nowrap" href="#about">ABOUT US</a>
+        <a class="menu__item text-nowrap" href="#gallery">GALLERY</a>
+        <a class="menu__item text-nowrap" href="#contact">CONTACT US</a>
     </div>
-    <div class="call display-flex flex-cross-center bg-white">
+    <div class="col order-3 z-0 px-2 d-flex align-items-center justify-content-center call bg-white ml-n1">
         <div class="call__icon"></div>
-        <div class="display-flex-column">
+        <div class="d-flex flex-column">
             <div class="secondary-text p12">Call us anytime</div>
             <div class="call__number">{{ PHONE_NUMBER }}</div>
         </div>
     </div>
-    <div class="flex-auto height-100 bg-white"></div>
 </div>
 

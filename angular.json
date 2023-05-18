@@ -35,6 +35,11 @@
                 "glob": "favicon.svg",
                 "input": "src/",
                 "output": "/"
+              },
+              {
+                "glob": "CNAME",
+                "input": "src/",
+                "output": "/"
               }
             ],
             "styles": [

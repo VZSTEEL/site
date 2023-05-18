@@ -1,17 +1,12 @@
-@import 'src/styles';
+@import '/src/styles';
 
 @headerHeight: 110px;
-
-:host {
-  height: @headerHeight;
-  background: #fff;
-  border-bottom: 1px solid white;
-}
 
 .company-name {
   font-size: 30px;
   font-weight: bold;
   color: white;
+  padding-right: 10px;
 }
 
 .triangle {
@@ -28,6 +23,7 @@
 }
 
 .logo {
+  flex-shrink: 0;
   width: @headerHeight;
   height: @headerHeight;
   background: url('src/assets/logo.svg') center center no-repeat;
@@ -36,21 +32,22 @@
 
 .menu {
   &__item {
+    margin: 0 10px;
     font-size: 14px;
     color: black;
     font-weight: bold;
-    margin-left: 50px;
   }
 }
 
 .call {
-  margin-left: 60px;
-
+  padding: 10px 0;
+  margin-left: -1px;
   &__icon {
+    flex-shrink: 0;
     margin-right: 20px;
     width: 50px;
     height: 50px;
-    background: url('../../assets/chat-red.svg') center center no-repeat;
+    background: url('src/assets/chat-red.svg') center center no-repeat;
     background-size: contain;
   }
 

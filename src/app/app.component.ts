@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { EMAIL, GALLERY, PHONE_NUMBER } from '../config';
+import { EMAIL, GALLERY, PHONE_NUMBER } from 'src/config';
 import { FormControl, FormGroup } from '@angular/forms';
+import lgFullScreen from 'lightgallery/plugins/fullscreen';
+import lgThumb from 'lightgallery/plugins/thumbnail';
+import { LightGallerySettings } from 'lightgallery/lg-settings';
 
 @Component({
   selector: 'vz-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
   host: {
-    class: 'display-flex-column flex-auto bg-blue height-100'
+    class: 'd-flex flex-column flex-auto bg-blue h-100'
   }
 })
 export class AppComponent {
@@ -15,6 +18,12 @@ export class AppComponent {
   PHONE_NUMBER = PHONE_NUMBER;
   EMAIL = EMAIL;
   GALLERY = GALLERY;
+
+  lightGallerySettings: LightGallerySettings = {
+    counter: false,
+    download: false,
+    plugins: [lgFullScreen, lgThumb],
+  };
 
   form = new FormGroup({
     fromName: new FormControl<string>(''),
