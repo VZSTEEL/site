@@ -15,6 +15,10 @@ GPLv3
 
 lightgallery/angular
 
+lightgallery/plugins/fullscreen
+
+lightgallery/plugins/thumbnail
+
 rxjs
 Apache-2.0
                                Apache License
