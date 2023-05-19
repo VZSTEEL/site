@@ -10,20 +10,14 @@
 <div class="main" id="about">
     <div class="about h1"><span class="text-red">ABOUT</span> US</div>
     <div class="content px-3">
-        VZ Steel is proud to provide top-quality steel fixing jobs completed to the best standard. No job is too big or
-        too
-        small for our experienced and committed team. Whether your project is residential or commercial we will always
-        be on
-        hand to get the job done right and on time. We believe our experience, dedication and individual approach can
-        make a
-        huge difference in the overall delivery of the final product.
+        {{ ABOUT }}
     </div>
 </div>
 <div class="container-md gallery px-3 py-5" id="gallery">
     <div class="h1 text-red mb-5">Gallery</div>
     <div class="d-flex flex-column align-items-center">
         <lightgallery class="d-flex flex-wrap justify-content-center" [settings]="lightGallerySettings">
-            <a class="d-block" *ngFor="let image of GALLERY" [href]="'assets/photos/' + image">
+            <a class="d-block" *ngFor="let image of GALLERY?.photos" [href]="'assets/photos/' + image">
                 <img [src]="'assets/photos/thumbs/' + image"/>
             </a>
         </lightgallery>
@@ -48,26 +42,26 @@
                             <div class="row g-0">
                                 <input class="col mx-2 my-2" type="text" required maxlength="50"
                                        formControlName="fromName"
-                                       placeholder="Enter Name">
+                                       placeholder="Name *">
                                 <input class="col mx-2 my-2" type="email" maxlength="50" formControlName="fromEmail"
-                                       placeholder="Enter Email">
+                                       placeholder="Email">
                             </div>
 
                             <div class="row g-0">
-                                <input class="col mx-2 my-2" type="text" required maxlength="50"
+                                <input class="col mx-2 my-2" type="text" maxlength="50"
                                        formControlName="subject"
-                                       placeholder="Enter Subject">
+                                       placeholder="Subject">
                                 <input class="col mx-2 my-2" type="text" maxlength="50" formControlName="phone"
-                                       placeholder="Enter Phone Number">
+                                       placeholder="Phone Number">
                             </div>
                         </div>
 
                         <div class="d-flex flex-auto mx-2 my-2">
                             <textarea class="w-100" formControlName="message" required maxlength="1000"
-                                      placeholder="Enter Your Message"></textarea>
+                                      placeholder="Your Message *"></textarea>
                         </div>
                         <div class="mx-2 my-3">
-                            <button type="submit">SEND MESSAGE</button>
+                            <button type="submit" [disabled]="formSubmitDisabled">SEND MESSAGE</button>
                         </div>
                     </form>
                 </div>

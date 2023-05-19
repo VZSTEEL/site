@@ -37,6 +37,11 @@
                 "output": "/"
               },
               {
+                "glob": "config.json",
+                "input": "src/",
+                "output": "/"
+              },
+              {
                 "glob": "CNAME",
                 "input": "src/",
                 "output": "/"

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { EMAIL, GALLERY, PHONE_NUMBER } from 'src/config';
 import { FormControl, FormGroup } from '@angular/forms';
 import lgFullScreen from 'lightgallery/plugins/fullscreen';
 import lgThumb from 'lightgallery/plugins/thumbnail';
 import { LightGallerySettings } from 'lightgallery/lg-settings';
+import { IConfig } from '../app.types';
 
 @Component({
   selector: 'vz-app',
@@ -15,9 +15,13 @@ import { LightGallerySettings } from 'lightgallery/lg-settings';
 })
 export class AppComponent {
   title = 'vz-steel';
-  PHONE_NUMBER = PHONE_NUMBER;
-  EMAIL = EMAIL;
-  GALLERY = GALLERY;
+  PHONE_NUMBER = this.config.companyPhoneNumber;
+  EMAIL = this.config.companyEmail;
+  GALLERY = this.config.gallery;
+  ABOUT = this.config.aboutCompany;
+  formSubmitDisabled: boolean = false;
+
+  constructor(private config: IConfig) {}
 
   lightGallerySettings: LightGallerySettings = {
     counter: false,
@@ -37,14 +41,39 @@ export class AppComponent {
     let { fromName, fromEmail, subject, phone, message } = this.form.value;
     message = message || '';
     message += '\n--------------------------------------------------------------';
-    message += `\nName: ${fromName}\nEmail: ${fromEmail}\nPhone Number: ${phone}`;
-    message = message.replace(/\n/g, '%0a');
-    const element = document.createElement('a');
-    const href = `mailto:${EMAIL}?subject=${subject}&body=${message}`;
-    element.setAttribute('href', href);
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    message += `\nPhone Number: ${phone}`;
+
+    this.formSubmitDisabled = true;
+
+    fetch(`https://formsubmit.co/ajax/${this.EMAIL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: fromName,
+        message,
+        _subject: subject,
+        email: fromEmail
+      })
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.formSubmitDisabled = false;
+        this.form.reset();
+      })
+      .catch(error => {
+        this.formSubmitDisabled = false;
+        console.log(error)
+      });
+
+    // const element = document.createElement('a');
+    // const href = `mailto:${this.EMAIL}?subject=${subject}&body=${message}`;
+    // element.setAttribute('href', href);
+    // element.style.display = 'none';
+    // document.body.appendChild(element);
+    // element.click();
+    // document.body.removeChild(element);
   }
 }

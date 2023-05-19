@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { COMPANY_NAME, EMAIL, PHONE_NUMBER } from 'src/config';
+import { IConfig } from '../../app.types';
 
 @Component({
   selector: 'vz-header',
@@ -7,7 +7,9 @@ import { COMPANY_NAME, EMAIL, PHONE_NUMBER } from 'src/config';
   styleUrls: ['./header.component.less']
 })
 export class HeaderComponent {
-  COMPANY_NAME = COMPANY_NAME;
-  PHONE_NUMBER = PHONE_NUMBER;
-  EMAIL = EMAIL;
+  COMPANY_NAME = this.config.companyName;
+  PHONE_NUMBER = this.config.companyPhoneNumber;
+  EMAIL = this.config.companyEmail;
+
+  constructor(private config: IConfig) {}
 }
