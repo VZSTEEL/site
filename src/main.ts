@@ -4,10 +4,6 @@ import { AppModule } from './app/app.module';
 import { IConfig } from './app.types';
 
 const defaultConfig: IConfig = {
-  companyName: '',
-  companyPhoneNumber: '',
-  companyEmail: '',
-  aboutCompany: '',
   gallery: { photos: [] }
 }
 
@@ -17,6 +13,7 @@ fetch('/config.json')
     gallery: { photos: [] }
   }))
   .then(config => {
+    document.title = config.title;
     platformBrowserDynamic([{ provide: IConfig, useValue: config }]).bootstrapModule(AppModule)
       .catch(err => console.error(err));
   });

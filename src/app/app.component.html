@@ -60,8 +60,10 @@
                             <textarea class="w-100" formControlName="message" required maxlength="1000"
                                       placeholder="Your Message *"></textarea>
                         </div>
-                        <div class="mx-2 my-3">
-                            <button type="submit" [disabled]="formSubmitDisabled">SEND MESSAGE</button>
+                        <div class="mx-2 my-3" *ngIf="formSubmitting">Please wait...</div>
+                        <div class="mx-2 my-3" *ngIf="formSubmitted">{{ config.formSubmitMessage }}</div>
+                        <div class="mx-2 my-3 d-flex">
+                            <button type="submit" [disabled]="formSubmitting">SEND MESSAGE</button>
                         </div>
                     </form>
                 </div>

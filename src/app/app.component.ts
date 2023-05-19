@@ -19,9 +19,10 @@ export class AppComponent {
   EMAIL = this.config.companyEmail;
   GALLERY = this.config.gallery;
   ABOUT = this.config.aboutCompany;
-  formSubmitDisabled: boolean = false;
+  formSubmitting: boolean = false;
+  formSubmitted: boolean = false;
 
-  constructor(private config: IConfig) {}
+  constructor(public config: IConfig) {}
 
   lightGallerySettings: LightGallerySettings = {
     counter: false,
@@ -43,7 +44,8 @@ export class AppComponent {
     message += '\n--------------------------------------------------------------';
     message += `\nPhone Number: ${phone}`;
 
-    this.formSubmitDisabled = true;
+    this.formSubmitting = true;
+    this.formSubmitted = false;
 
     fetch(`https://formsubmit.co/ajax/${this.EMAIL}`, {
       method: 'POST',
@@ -60,11 +62,12 @@ export class AppComponent {
     })
       .then(response => response.json())
       .then(data => {
-        this.formSubmitDisabled = false;
+        this.formSubmitting = false;
+        this.formSubmitted = true;
         this.form.reset();
       })
       .catch(error => {
-        this.formSubmitDisabled = false;
+        this.formSubmitting = false;
         console.log(error)
       });
 
