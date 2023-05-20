@@ -13,7 +13,6 @@ fetch('/config.json')
     gallery: { photos: [] }
   }))
   .then(config => {
-    document.title = config.title;
     platformBrowserDynamic([{ provide: IConfig, useValue: config }]).bootstrapModule(AppModule)
       .catch(err => console.error(err));
   });

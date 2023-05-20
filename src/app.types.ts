@@ -3,7 +3,6 @@ interface IGallery {
 }
 
 export abstract class IConfig {
-  abstract title?: string;
   abstract companyName?: string;
   abstract companyPhoneNumber?: string;
   abstract companyEmail?: string;
