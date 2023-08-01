@@ -13,4 +13,5 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `git subtree pull --prefix dist origin gh-pages` to pull changes from origin
 Run `git subtree push --prefix dist origin gh-pages` to push changes to gh-pages
